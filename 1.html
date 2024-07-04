@@ -4,338 +4,285 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dynamic Text Effect</title>
-   <style>
-   @font-face {
-  font-family: Clip;
-  src: url("https://acupoftee.github.io/fonts/Clip.ttf");
-}
+  <style>
+    @font-face {
+      font-family: Clip;
+      src: url("https://acupoftee.github.io/fonts/Clip.ttf");
+    }
 
-body {
-  background-color: #141114;
-  background-image: linear-gradient(335deg, black 23px, transparent 23px),
-    linear-gradient(155deg, black 23px, transparent 23px),
-    linear-gradient(335deg, black 23px, transparent 23px),
-    linear-gradient(155deg, black 23px, transparent 23px);
-  background-size: 58px 58px;
-  background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-  margin: 0;
-}
+    body {
+      background-color: #141114;
+      background-image: linear-gradient(335deg, black 23px, transparent 23px),
+        linear-gradient(155deg, black 23px, transparent 23px),
+        linear-gradient(335deg, black 23px, transparent 23px),
+        linear-gradient(155deg, black 23px, transparent 23px);
+      background-size: 58px 58px;
+      background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      margin: 0;
+      padding: 10px;
+      box-sizing: border-box;
+    }
 
-.input-container {
-  margin-bottom: 20px;
-  text-align: center;
-}
+    .input-container {
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-#userName {
-  padding: 10px;
-  font-size: 1.2em;
-}
+    #userName {
+      padding: 10px;
+      font-size: 1.2em;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
 
-button {
-  padding: 10px 20px;
-  font-size: 1.2em;
-  cursor: pointer;
-}
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
 
-.sign {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: auto;
-  background-image: radial-gradient(
-    ellipse 50% 35% at 50% 50%,
-    #6b1839,
-    transparent
-  );
-  letter-spacing: 2;
-  font-family: "Clip";
-  text-transform: uppercase;
-  font-size: 6em;
-  color: #ffe6ff;
-  text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
-    -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
-    0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
-  animation: shine 2s forwards, flicker 3s infinite;
-}
+    .sign {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: auto;
+      background-image: radial-gradient(ellipse 50% 35% at 50% 50%, #6b1839, transparent);
+      letter-spacing: 2px;
+      font-family: "Clip";
+      text-transform: uppercase;
+      font-size: 6em;
+      color: #ffe6ff;
+      text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
+        -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
+        0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+      animation: shine 2s forwards, flicker 3s infinite;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 10px;
+    }
 
-.back-button {
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 2em;
-  color: white;
-  cursor: pointer;
-}
+    .back-button {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 2em;
+      color: white;
+      cursor: pointer;
+    }
 
-@keyframes blink {
-  0%,
-  22%,
-  36%,
-  75% {
-    color: #ffe6ff;
-    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
-      -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
-      0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
-  }
-  28%,
-  33% {
-    color: #ff65bd;
-    text-shadow: none;
-  }
-  82%,
-  97% {
-    color: #ff2483;
-    text-shadow: none;
-  }
-}
+    @keyframes blink {
+      0%, 22%, 36%, 75% {
+        color: #ffe6ff;
+        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
+          -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
+          0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+      }
+      28%, 33% {
+        color: #ff65bd;
+        text-shadow: none;
+      }
+      82%, 97% {
+        color: #ff2483;
+        text-shadow: none;
+      }
+    }
 
-.flicker {
-  animation: shine 2s forwards, blink 3s 2s infinite;
-}
+    .flicker {
+      animation: shine 2s forwards, blink 3s 2s infinite;
+    }
 
-.fast-flicker {
-  animation: shine 2s forwards, blink 10s 1s infinite;
-}
+    .fast-flicker {
+      animation: shine 2s forwards, blink 10s 1s infinite;
+    }
 
-@keyframes shine {
-  0% {
-    color: #6b1839;
-    text-shadow: none;
-  }
-  100% {
-    color: #ffe6ff;
-    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
-      -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
-      0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
-  }
-}
+    @keyframes shine {
+      0% {
+        color: #6b1839;
+        text-shadow: none;
+      }
+      100% {
+        color: #ffe6ff;
+        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
+          -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
+          0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+      }
+    }
 
-@keyframes flicker {
-  from {
-    opacity: 1;
-  }
+    @keyframes flicker {
+      from {
+        opacity: 1;
+      }
+      4% {
+        opacity: 0.9;
+      }
+      6% {
+        opacity: 0.85;
+      }
+      8% {
+        opacity: 0.95;
+      }
+      10% {
+        opacity: 0.9;
+      }
+      11% {
+        opacity: 0.922;
+      }
+      12% {
+        opacity: 0.9;
+      }
+      14% {
+        opacity: 0.95;
+      }
+      16% {
+        opacity: 0.98;
+      }
+      17% {
+        opacity: 0.9;
+      }
+      19% {
+        opacity: 0.93;
+      }
+      20% {
+        opacity: 0.99;
+      }
+      24% {
+        opacity: 1;
+      }
+      26% {
+        opacity: 0.94;
+      }
+      28% {
+        opacity: 0.98;
+      }
+      37% {
+        opacity: 0.93;
+      }
+      38% {
+        opacity: 0.5;
+      }
+      39% {
+        opacity: 0.96;
+      }
+      42% {
+        opacity: 1;
+      }
+      44% {
+        opacity: 0.97;
+      }
+      46% {
+        opacity: 0.94;
+      }
+      56% {
+        opacity: 0.9;
+      }
+      58% {
+        opacity: 0.9;
+      }
+      60% {
+        opacity: 0.99;
+      }
+      68% {
+        opacity: 1;
+      }
+      70% {
+        opacity: 0.9;
+      }
+      72% {
+        opacity: 0.95;
+      }
+      93% {
+        opacity: 0.93;
+      }
+      95% {
+        opacity: 0.95;
+      }
+      97% {
+        opacity: 0.93;
+      }
+      to {
+        opacity: 1;
+      }
+    }
 
-  4% {
-    opacity: 0.9;
-  }
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .sign {
+        font-size: 4em;
+      }
 
-  6% {
-    opacity: 0.85;
-  }
+      #userName, button {
+        font-size: 1em;
+        padding: 8px;
+      }
+    }
 
-  8% {
-    opacity: 0.95;
-  }
+    @media (max-width: 480px) {
+      .sign {
+        font-size: 2.5em;
+      }
 
-  10% {
-    opacity: 0.9;
-  }
+      #userName, button {
+        font-size: 0.9em;
+        padding: 6px;
+      }
 
-  11% {
-    opacity: 0.922;
-  }
-
-  12% {
-    opacity: 0.9;
-  }
-
-  14% {
-    opacity: 0.95;
-  }
-
-  16% {
-    opacity: 0.98;
-  }
-
-  17% {
-    opacity: 0.9;
-  }
-
-  19% {
-    opacity: 0.93;
-  }
-
-  20% {
-    opacity: 0.99;
-  }
-
-  24% {
-    opacity: 1;
-  }
-
-  26% {
-    opacity: 0.94;
-  }
-
-  28% {
-    opacity: 0.98;
-  }
-
-  37% {
-    opacity: 0.93;
-  }
-
-  38% {
-    opacity: 0.5;
-  }
-
-  39% {
-    opacity: 0.96;
-  }
-
-  42% {
-    opacity: 1;
-  }
-
-  44% {
-    opacity: 0.97;
-  }
-
-  46% {
-    opacity: 0.94;
-  }
-
-  56% {
-    opacity: 0.9;
-  }
-
-  58% {
-    opacity: 0.9;
-  }
-
-  60% {
-    opacity: 0.99;
-  }
-
-  68% {
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 0.9;
-  }
-
-  72% {
-    opacity: 0.95;
-  }
-
-  93% {
-    opacity: 0.93;
-  }
-
-  95% {
-    opacity: 0.95;
-  }
-
-  97% {
-    opacity: 0.93;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .sign {
-    font-size: 4em;
-  }
-
-  #userName,
-  button {
-    font-size: 1em;
-    padding: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .sign {
-    font-size: 2.5em;
-  }
-
-  #userName,
-  button {
-    font-size: 0.9em;
-    padding: 6px;
-  }
-
-  .back-button {
-    font-size: 1.5em;
-  }
-}
-</style>
+      .back-button {
+        font-size: 1.5em;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="input-container" id="inputContainer">
     <input type="text" id="userName" placeholder="Enter your name">
     <button onclick="updateName()">Show Effect</button>
   </div>
-  <div class="back-button" id="backButton" onclick="goBack()"><</div>
+  <div class="back-button" id="backButton" onclick="goBack()">&lt;</div>
   <div class="sign" id="nameDisplay"></div>
   <script>
-  function updateName() {
- const userName = document
-  .getElementById('userName')
-  .value;
- const nameDisplay = document
-  .getElementById('nameDisplay');
- const inputContainer = document
-  .getElementById(
-   'inputContainer');
- const backButton = document
-  .getElementById('backButton');
+    function updateName() {
+      const userName = document.getElementById('userName').value;
+      const nameDisplay = document.getElementById('nameDisplay');
+      const inputContainer = document.getElementById('inputContainer');
+      const backButton = document.getElementById('backButton');
 
- if (userName) {
-  nameDisplay.style.display =
-   'flex';
-  inputContainer.style.display =
-   'none';
-  backButton.style.display =
-   'block';
+      if (userName) {
+        nameDisplay.style.display = 'flex';
+        inputContainer.style.display = 'none';
+        backButton.style.display = 'block';
 
-  nameDisplay.innerHTML = '';
-  userName.split('').forEach((
-   char, index) => {
-   const span = document
-    .createElement('span');
-   span.textContent = char;
-   if (index % 2 === 0) {
-    span.classList.add(
-     'fast-flicker');
-   } else {
-    span.classList.add(
-     'flicker');
-   }
-   nameDisplay.appendChild(
-   span);
-  });
- }
-}
+        nameDisplay.innerHTML = '';
+        userName.split('').forEach((char, index) => {
+          const span = document.createElement('span');
+          span.textContent = char;
+          if (index % 2 === 0) {
+            span.classList.add('fast-flicker');
+          } else {
+            span.classList.add('flicker');
+          }
+          nameDisplay.appendChild(span);
+        });
+      }
+    }
 
-function goBack() {
- const nameDisplay = document
-  .getElementById('nameDisplay');
- const inputContainer = document
-  .getElementById(
-   'inputContainer');
- const backButton = document
-  .getElementById('backButton');
+    function goBack() {
+      const nameDisplay = document.getElementById('nameDisplay');
+      const inputContainer = document.getElementById('inputContainer');
+      const backButton = document.getElementById('backButton');
 
- nameDisplay.style.display =
-  'none';
- inputContainer.style.display =
-  'block';
- backButton.style.display =
- 'none';
-}
-</script>
+      nameDisplay.style.display = 'none';
+      inputContainer.style.display = 'block';
+      backButton.style.display = 'none';
+    }
+  </script>
 </body>
 </html>
