@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
  <title></title>
@@ -11,8 +11,9 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  filter: progid: DXImageTransform.Microsoft.AlphaImageLoader(src='.http://www.edreamhotels.com/wp-content/uploads/2013/09/header01.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.edreamhotels.com/wp-content/uploads/2013/09/header01.jpg', sizingMethod='scale')";
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin: 0;
 }
 
 #center {
@@ -134,12 +135,16 @@ body {
 #userName {
   padding: 10px;
   font-size: 1.2em;
+  width: 80%;
+  max-width: 300px;
 }
 
 button {
   padding: 10px 20px;
   font-size: 1.2em;
   cursor: pointer;
+  width: 80%;
+  max-width: 300px;
 }
 
 .back-button {
@@ -194,7 +199,7 @@ button {
     <div id="center">
       <div class="glitch-effect" id="glitchText" data-text=""></div>
     </div>
-    <div class="back-button" onclick="showInputContainer()"><</div>
+    <div class="back-button" onclick="showInputContainer()">&#8249;</div>
   </div>
 
   <script>
@@ -202,18 +207,4 @@ button {
       const userName = document.getElementById('userName').value;
       if (userName.trim() !== "") {
         document.getElementById('glitchText').setAttribute('data-text', userName);
-        document.getElementById('glitchText').innerText = userName;
-        document.getElementById('inputContainer').style.display = 'none';
-        document.getElementById('center').style.display = 'block';
-        document.querySelector('.back-button').style.display = 'block';
-      }
-    }
-
-    function showInputContainer() {
-      document.getElementById('inputContainer').style.display = 'block';
-      document.getElementById('center').style.display = 'none';
-      document.querySelector('.back-button').style.display = 'none';
-      document.getElementById('userName').value = '';
-    }
-  </script>
-</html>
+        document.getElementById('
