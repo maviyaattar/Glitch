@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
   <title></title>
@@ -31,22 +31,17 @@
 
     .input-container {
       text-align: center;
-      margin-bottom: 20px;
     }
 
     #userName {
       padding: 10px;
       font-size: 1.2em;
-      width: 100%;
-      max-width: 300px;
     }
 
     button {
       padding: 10px 20px;
       font-size: 1.2em;
       cursor: pointer;
-      width: 100%;
-      max-width: 300px;
     }
 
     p {
@@ -133,6 +128,10 @@
     @media (max-width: 768px) {
       body {
         font-size: calc(var(--f-size) * 0.75 * var(--f-unit));
+      }
+
+      .input-container {
+        margin-bottom: 10px;
       }
 
       #userName,
